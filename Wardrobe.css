@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Reem+Kufi:wght@400..700&display=swap');
+
+body {
+    font-family: "Reem Kufi", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 470;
+    font-style: bold;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.img-sm {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.telegram-button {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 50px;
+    bottom: 50px;
+    z-index: 100;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.telegram-button:hover {
+    transform: scale(1.2);
+}
+
+.site-header {
+    width: 100%;
+    height: 80px;
+    background-color: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid #b2b2b2;
+}
+
+.navigation {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    user-select: none;
+}
+
+.nav-link:last-child {
+    border-right: none;
+}
+
+.nav-link p {
+    font-size: 17px;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.nav-link p:hover {
+    transform: scale(1.3);
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    border-right: 1px solid #b2b2b2;
+}
+
+.profile p {
+    color: #616161;
+    font-size: 30px;
+    user-select: none;
+}
+
+.profile {
+    background: #b2b2b2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    width: 50px;
+    height: 50px;
+}
+
+.profile:hover {
+    transform: scale(1.2);
+}
+
+.logo {
+    width: 120px;
+    height: 40px;
+    background-image: url('images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.main-content {
+    flex-grow: 1;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    
+}
+
+.site-footer p {
+    user-select: none;
+    font-size: 2.3vh;
+    opacity: 60%;
+}
+
+.site-footer {
+    width: 100%;
+    height: 80px;
+    background-color: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    border-top: 1px solid #b2b2b2;
+}
+
+.clothes-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 50px;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.img-main {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3 ease;
+}
+
+.clothes-card {
+    border: 1px solid #b2b2b2;
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-info h3 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.card-info p {
+    font-size: 20px;
+    color: #808080;
+}
+
+.slider-line {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    height: 3px;
+    background-color: #e0e0e0;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.line-active {
+    width: 50%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 40%;
+    transform: translateX(0);
+    transition: transform 0.2s ease;
+}
+
+.hover-zone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 10;
+}
+
+.left-zone {
+    left: 0;
+}
+
+.right-zone {
+    right: 0;
+}
+
+.right-zone:hover ~ .img-hover {
+    opacity: 1;
+}
+
+.right-zone:hover ~ .slider-line .line-active {
+    transform: translateX(100%)
+}
+
+@media (max-width: 1200px) {
+    .clothes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .clothes-grid {
+        grid-template-columns: 1fr;
+    }
+}
