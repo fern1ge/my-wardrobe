@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Wardrobe</title>
+        <link rel="stylesheet" href="Wardrobe.css">
+    </head>
+    <body>
+
+        <!-- Navigation Bar with Logo, Links, and User Menu -->
+        <header class="site-header">
+            <div class="logo"></div>
+            <nav class="navigation">
+                <a href="#" class="nav-link"><p>My Clothes</p></a>
+                <a href="#" class="nav-link"><p>About</p></a>
+                <a href="#" class="nav-link"><p>Contacts</p></a>
+            </nav>
+            <div class="profile">
+                <p>P</p>
+                <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                <!-- Menu -->
+                <div class="profile-dropdown">
+                    <!-- Container for Change Avatar -->
+                    <div class="dropdown-item-container">
+                        <span class="dropdown-text">Change avatar</span>
+                        <!-- Plus Button -->
+                        <button class="plus-btn" id="changeAvatarBtn" title="Upload Photo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="theme-picker">
+                        <!-- Button for Light Theme (Icon of Sun) -->
+                        <button class="theme-btn light-theme-btn" title="Light Theme">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        </button>
+
+                        <!-- Button for Dark Theme (Icon of Moon) -->
+                        <button class="theme-btn dark-theme-btn" title="Dark Theme">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+        </header>
+
+        <!-- Telegram Button -->
+        <div class="telegram-button">
+            <a href="https://telegram.org" target="_blank"><img src="images/telegram-logo.webp" alt="telegram-button" class="img-sm"></a>
+        </div>
+
+        <!-- Wardrobe Catalog Grid -->
+        <main class="main-content">
+            <section class="clothes-grid">
+
+                <!-- Individual Item Card -->
+                <article class="clothes-card">
+                    <div class="card-image">
+                        <img src="images/hoodie_1.webp" alt="Hoodie view front" class="img-main">
+                        <div class="hover-zone left-zone"></div>
+                        <div class="hover-zone right-zone"></div>
+                        <img src="images/hoodie_2.webp" alt="Hoodie view back" class="img-hover">
+                        <div class="slider-line">
+                            <div class="line-active"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="title-row">
+                            <h3>Hoodie Killer Icon</h3>
+                            <div class="wishlist-container">
+                                <input type="checkbox" id="heart1" class="heart-checkbox">
+                                <label for="heart1" class="heart-label" title="Add to wishlist">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                        <p>My best skinny hoodie</p>
+                    </div>
+                </article>
+                
+                <!-- Individual Item Card -->
+                <article class="clothes-card">
+                    <div class="card-image">
+                        <img src="images/shirt_1.webp" alt="Shirt view front" class="img-main">
+                        <div class="hover-zone left-zone"></div>
+                        <div class="hover-zone right-zone"></div>
+                        <img src="images/shirt_2.webp" alt="Shirt view back" class="img-hover">
+                        <div class="slider-line">
+                            <div class="line-active"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="title-row">
+                            <h3>T-Shirt Hysteric Glamour</h3>
+                            <div class="wishlist-container">
+                                <input type="checkbox" id="heart2" class="heart-checkbox">
+                                <label for="heart2" class="heart-label" title="Add to wishlist">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                        <p>Worst shirt ever</p>
+                    </div>
+                </article>
+
+                <!-- Individual Item Card -->
+                <article class="clothes-card">
+                    <div class="card-image">
+                        <img src="images/jeans_1.webp" alt="Jeans view front" class="img-main">
+                    </div>
+                    <div class="card-info">
+                        <div class="title-row">
+                            <h3>Jeans Mijko</h3>
+                            <div class="wishlist-container">
+                                <input type="checkbox" id="heart3" class="heart-checkbox">
+                                <label for="heart3" class="heart-label" title="Add to wishlist">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                        <p>Normal flared jeans</p>
+                    </div>
+                </article>
+
+                <!-- Individual Item Card -->
+                <article class="clothes-card">
+                    <div class="card-image">
+                        <img src="images/bogun_boots_1.webp" alt="Boots view front" class="img-main">
+                        <div class="hover-zone left-zone"></div>
+                        <div class="hover-zone right-zone"></div>
+                        <img src="images/bogun_boots_2.webp" alt="Boots view back" class="img-hover">
+                        <div class="slider-line">
+                            <div class="line-active"></div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <div class="title-row">
+                            <h3>Rick Owens Bogun Boots</h3>
+                            <div class="wishlist-container">
+                                <input type="checkbox" id="heart4" class="heart-checkbox">
+                                <label for="heart4" class="heart-label" title="Add to wishlist">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                        <p>Awesome boots for autumn/winter</p>
+                    </div>
+                </article>
+
+                <!-- Individual Item Card -->
+                <article class="clothes-card">
+                    <div class="card-image">
+                        <img src="images/longsleeve_1.webp" alt="Longsleeve view front" class="img-main">
+                    </div>
+                    <div class="card-info">
+                        <div class="title-row">
+                            <h3>Erd Longsleeve</h3>
+                            <div class="wishlist-container">
+                                <input type="checkbox" id="heart5" class="heart-checkbox">
+                                <label for="heart5" class="heart-label" title="Add to wishlist">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                        <p>I don't like this item</p>
+                    </div>
+                </article>
+
+                <!-- Individual Item Card -->
+                <article class="clothes-card">
+                    <div class="card-image">
+                        <img src="images/belt_1.webp" alt="Belt view front" class="img-main">
+                    </div>
+                    <div class="card-info">
+                        <div class="title-row">
+                            <h3>Erd Eagle Belt</h3>
+                            <div class="wishlist-container">
+                                <input type="checkbox" id="heart6" class="heart-checkbox">
+                                <label for="heart6" class="heart-label" title="Add to wishlist">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+                        <p>Just unisex belt idk</p>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+
+        <!-- Site Footer -->
+        <footer class="site-footer">
+            <p>My Wardrobe 2026</p>
+        </footer>
+
+        <!-- Import Java Script -->
+        <script src="script.js"></script>
+    </body>
+</html>

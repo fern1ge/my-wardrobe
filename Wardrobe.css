@@ -1,0 +1,560 @@
+/* #region Global Styles & import */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Reem+Kufi:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Reem Kufi", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 470;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* #endregion */
+
+/* #region Helper Class For Small Imagery Integration */
+.img-sm {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+/* #endregion */
+
+/* #region Floating Action Button (FAB) for Telegram contact */
+.telegram-button {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 50px;
+    bottom: 50px;
+    z-index: 100;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.telegram-button:hover {
+    transform: scale(1.2);
+}
+/* #endregion */
+
+/* #region Site Header & Navigation */
+.site-header {
+    width: 100%;
+    height: 80px;
+    background-color: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid #b2b2b2;
+    position: relative;
+    z-index: 150;
+}
+
+.navigation {
+    width: 400px;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    user-select: none;
+}
+
+.nav-link:last-child {
+    border-right: none;
+}
+
+.nav-link p {
+    font-size: 17px;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.nav-link p:hover {
+    transform: scale(1.3);
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    border-right: 1px solid #b2b2b2;
+}
+
+.logo {
+    width: 120px;
+    height: 40px;
+    background-image: url('images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* #endregion */
+
+/* #region User Profile & Dropdown Menu */
+.profile {
+    position: relative;
+    background: #b2b2b2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+    transition: transform 0.3s ease, border-radius 0.3s ease;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.profile p {
+    color: #616161;
+    font-size: 30px;
+    user-select: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+}
+/* #endregion */
+
+/* #region Dropdown Container */
+.profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #b2b2b2;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+
+    /*Hidden menu by default*/
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 200;
+}
+
+.profile:hover .profile-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0;
+}
+/* #endregion */
+
+/* #region Dropdown Menu Item Row */
+.dropdown-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.dropdown-text {
+    font-size: 14px;
+    font-family: inherit;
+    color: #333333;
+    user-select: none;
+}
+/* #endregion */
+
+/* #region Avatar Upload Icon Button */
+.plus-btn {
+    background: #ffffff;
+    border: 1px solid #b2b2b2;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.plus-btn svg {
+    width: 14px;
+    height: 14px;
+    color: #333333;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.plus-btn:hover {
+    background-color: #5c5cff;
+    border-color: #4a4af5;
+}
+
+.plus-btn:hover svg {
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+/* #endregion */
+
+/* #region Theme Chooser Row */
+.theme-picker {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #fafafa;
+    border-top: 1px solid #e0e0e0;
+}
+
+.theme-btn {
+    background: #ffffff;
+    border: 1px solid #b2b2b2;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.theme-btn svg {
+    width: 18px;
+    height: 18px;
+    color: #333333;
+    transition: color 0.2s ease;
+}
+
+.light-theme-btn:hover {
+    background-color: #fffae6;
+    border-color: #ffcc00;
+}
+.light-theme-btn:hover svg {
+    color: #ffaa00;
+}
+
+.dark-theme-btn:hover {
+    background-color: #f0f0ff;
+    border-color: #4a4af5;
+}
+.dark-theme-btn:hover svg {
+    color: #4a4af5;
+}
+/* #endregion */
+
+/* #region Main Content & Products Grid */
+.main-content {
+    flex-grow: 1;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    
+}
+
+.clothes-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 50px;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.img-main {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+/* #endregion */
+
+/* #region Product Card Wrapper */
+.clothes-card {
+    border: 1px solid #b2b2b2;
+    background-color: #ffffff;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clothes-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* #endregion */
+
+/* #region Product Content Typo Settings */
+.card-info h3 {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.card-info p {
+    font-size: 20px;
+    color: #808080;
+}
+/* #endregion */
+
+/* #region CSS Slider Indicator UI */
+.slider-line {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    height: 3px;
+    background-color: #e0e0e0;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.line-active {
+    width: 50%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.4;
+    transform: translateX(0);
+    transition: transform 0.2s ease;
+}
+/* #endregion */
+
+/* #region Interactive Hover Anchors */
+.hover-zone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 10;
+}
+
+.left-zone {
+    left: 0;
+}
+
+.right-zone {
+    right: 0;
+}
+
+.right-zone:hover ~ .img-hover {
+    opacity: 1;
+}
+/* #endregion */
+
+/* #region Interactive Triggers Utilizing CSS Siblings Selector */
+.right-zone:hover ~ .slider-line .line-active {
+    transform: translateX(100%)
+}
+/* #endregion */
+
+/* #region Wishlist Feature (Heart) */
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+/* #endregion */
+
+/* #region Hiding Default Browser Checkbox */
+.heart-checkbox {
+    display: none;
+}
+
+.heart-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+}
+
+.heart-label svg {
+    width: 28px;
+    height: 28px;
+    fill: transparent;
+    stroke: #a6a6a6;
+    transition: fill 0.25s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.heart-label:hover svg {
+    stroke: #8a8a8a;
+}
+/* #endregion */
+
+/* #region Checkbox Hack: State modification when checkbox gets :checked */
+.heart-checkbox:checked + .heart-label svg {
+    fill: #ff334b;
+    stroke: #ff334b;
+}
+/* #endregion */
+
+/* #region Site Footer */
+.site-footer {
+    width: 100%;
+    height: 80px;
+    background-color: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    border-top: 1px solid #b2b2b2;
+}
+
+.site-footer p {
+    user-select: none;
+    font-size: 2.3vh;
+    opacity: 0.6;
+}
+/* #endregion */
+
+/* #region Dark Theme Properties */
+body.dark-theme {
+    background-color: #121212;
+    color: #fefefe;
+}
+
+body.dark-theme .site-header,
+body.dark-theme .site-footer {
+    background-color: #1a1a1a;
+    border-color: #333333;
+}
+
+body.dark-theme .nav-link {
+    color: #fefefe;
+    border-color: #333333;
+}
+
+body.dark-theme .clothes-card {
+    background-color: #1a1a1a;
+    border-color: #333333;
+}
+
+body.dark-theme .card-info p {
+    color: #a0a0a0;
+}
+
+body.dark-theme .profile-dropdown {
+    background-color: #1a1a1a;
+    border-color: #333333;
+}
+
+body.dark-theme .dropdown-item {
+    color: #fefefe;
+}
+
+body.dark-theme .dropdown-item:hover {
+    background-color: #2a2a2a;
+}
+
+body.dark-theme .theme-picker {
+    background-color: #222222;
+    border-color: #333333;
+}
+
+body.dark-theme .theme-btn {
+    background-color: #1a1a1a;
+    border-color: #444444;
+}
+
+body.dark-theme .theme-btn svg {
+    color: #fefefe;
+}
+
+body.dark-theme .light-theme-btn:hover {
+    background-color: #fffae6;
+    border-color: #ffcc00;
+}
+body.dark-theme .light-theme-btn:hover svg {
+    color: #ffaa00;
+}
+
+body.dark-theme .dark-theme-btn:hover {
+    background-color: #1e1e3f;
+    border-color: #4a4af5;
+}
+body.dark-theme .dark-theme-btn:hover svg {
+    color: #5c5cff;
+}
+
+body.dark-theme .dropdown-item-container {
+    border-color: #333333;
+}
+
+body.dark-theme .dropdown-text {
+    color: #fefefe;
+}
+
+body.dark-theme .plus-btn {
+    background-color: #1a1a1a;
+    border-color: #444444;
+}
+
+body.dark-theme .plus-btn svg {
+    color: #fefefe;
+}
+
+body.dark-theme .plus-btn:hover {
+    background-color: #4a4af5;
+    border-color: #4a4af5;
+}
+
+body.dark-theme .heart-label svg {
+    stroke: #555555;
+}
+
+body.dark-theme .heart-label:hover svg {
+    stroke: #a0a0a0;
+}
+
+body.dark-theme .heart-checkbox:checked + .heart-label svg {
+    fill: #ff4d63;
+    stroke: #ff4d63;
+}
+/* #endregion */
+
+/* #region Responsive Media Queries */
+@media (max-width: 1200px) {
+    .clothes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .clothes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* #endregion */
